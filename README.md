@@ -1,2 +1,1 @@
-# Udemy
-sabovoichita.udemy.github.io
+# sabovoichita.gitbub.io
