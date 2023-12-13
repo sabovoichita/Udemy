@@ -1,4 +1,4 @@
-let activePage = "skills";
+let activePage = "home";
 
 function $(selector) {
   return document.querySelector(selector);

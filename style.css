@@ -1,5 +1,5 @@
 :root {
-  --clr-gold: #b3c23e;
+  --clr-gold: gold;
   --clr-green: #17621c;
 }
 html {
@@ -68,7 +68,6 @@ h1 {
 
 #top-menu-bar a {
   text-decoration: none;
-  color: var(--clr-gold);
   padding: 5px 15px 5px 15px;
   display: inline-block;
   margin: 4px 0;
@@ -85,7 +84,7 @@ h1 {
 #top-menu-bar a:hover,
 #top-menu-bar a.active {
   background-color: white;
-  color: var(--clr-gold);
+  color: var(--clr-green);
 }
 
 /* //////////////////////////   MAIN CONTENT /////////////////// */
@@ -107,7 +106,8 @@ h1 {
   flex: 1;
   padding: 24px;
   border-radius: 4px;
-  background: var(--clr-green);
+  background: linear-gradient(120deg, var(--clr-green), transparent);
+
   color: var(--clr-gold);
   box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
 }
