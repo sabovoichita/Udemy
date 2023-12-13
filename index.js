@@ -19,24 +19,26 @@ function showPage(id) {
   activePage = id;
 }
 
-showPage(activePage);
-
-$("#top-menu-bar").addEventListener("click", function (e) {
-  var id = e.target.dataset.page;
-  console.info("click on menu-bar", id);
-  if (id) {
-    showPage(id);
-  }
-});
-
-fetch("skills.json")
-  .then(function (response) {
-    console.info("done?");
-    return response.json();
-  })
-  .then(function (skills) {
-    printSkills(skills);
+function initEvents() {
+  $("#top-menu-bar").addEventListener("click", function (e) {
+    var id = e.target.dataset.page;
+    console.info("click on menu-bar", id);
+    if (id) {
+      showPage(id);
+    }
   });
+}
+
+function loadSkills() {
+  fetch("skills.json")
+    .then(function (response) {
+      console.info("done?");
+      return response.json();
+    })
+    .then(function (skills) {
+      printSkills(skills);
+    });
+}
 
 function printSkills(skills) {
   skills = sortSkillsByEndorcements(skills);
@@ -58,6 +60,10 @@ function sortSkillsByName(skills) {
     return a.name.localeCompare(b.name);
   });
 }
+
+showPage(activePage);
+initEvents();
+loadSkills();
 
 // function showHomePage() {
 //   hide(activePage);
