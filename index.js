@@ -8,23 +8,28 @@ function hide(id) {
 }
 
 function show(id) {
-  $(`#${id}`).style.display = "block";
+  console.info("show", id);
+  var page = $(`#${id}`);
+  console.info("page...", page);
+  page.style.display = "block";
 }
 
 function showPage(id) {
-  hide(activePage);
+  console.info("show page", id);
   $(`#top-menu-bar a[data-page="${activePage}"]`).classList.remove("active");
-  show(id);
+  hide(activePage);
   $(`#top-menu-bar a[data-page="${id}"]`).classList.add("active");
+  show(id);
   activePage = id;
 }
 
 function initEvents() {
   $("#top-menu-bar").addEventListener("click", (e) => {
-    const id = e.target.dataset.page;
-    console.info("click on menu-bar", id);
-    if (id) {
-      showPage(id);
+    console.info("click on menu-bar");
+    if (e.target.matches("a")) {
+      const page = e.target.dataset.page;
+      console.warn("click %o", page);
+      showPage(page);
     }
   });
 }
